@@ -31,7 +31,7 @@ export default function Navbar() {
 
 
   return (
-    <nav className="fixed top-0 left-0 w-full backdrop-blur-3xl py-3 bg-white/40  z-50">
+    <nav className="fixed top-0 left-0 w-full backdrop-blur-3xl py-3 bg-white/20  z-50">
       <div className="container mx-auto px-2 md:px-0">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
@@ -54,9 +54,9 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'text-sm font-medium transition-colors border-[var(--primary-color)] px-6 py-3 hover:text-white',
+                  'text-sm font-medium transition-colors border-[var(--primary-color)] px-6 py-3 ',
                   isActive(item.href)
-                    ? 'text-white  hover:text-[#FBBF24] '
+                    ? 'text-white rounded-full bg-[#022C22] hover:text-[#FBBF24] '
                     : 'text-[#FBBF24]',
                   item.disabled && 'cursor-not-allowed opacity-50'
                 )}
