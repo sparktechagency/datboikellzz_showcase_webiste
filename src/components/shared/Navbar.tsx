@@ -2,13 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { X, Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import Cookies from 'js-cookie';
-import { Button } from 'antd';
 
 type NavItem = {
   label: string;
@@ -27,35 +25,20 @@ const navItems: NavItem[] = [
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    const token = Cookies.get('token');
-    setIsLoggedIn(!!token);
-  }, [pathname]);
 
   const isActive = (href: string) =>
     pathname === href || (href !== '/' && pathname.startsWith(href));
 
-  const handleLogout = () => {
-    Cookies.remove('token');
-    setIsLoggedIn(false);
-    window.location.href = '/';
-  };
-
-  if (!isClient) return null;
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
+    <nav className="fixed top-0 left-0 w-full bg-[#999999] backdrop-blur-sm border-b  z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="w-auto h-12 relative">
               <Image
-                src="/brand.svg"
+                src="/icons/brand.svg"
                 alt="Logo"
                 width={1500}
                 height={1500}
@@ -83,30 +66,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            {isLoggedIn ? (
-              <>
-                <Link href="/profile">
-                  <Button className="text-gray-700 hover:bg-gray-100">
-                    Profile
-                  </Button>
-                </Link>
-                <Button
-                  onClick={handleLogout}
-                  className="border-gray-300 hover:bg-gray-50"
-                >
-                  Logout
-                </Button>
-              </>
-            ) : (
-              <>
-                <Link href="/auth/sign-up">
-                  <Button className="bg-pink text-white">Sign Up</Button>
-                </Link>
-              </>
-            )}
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -147,48 +106,6 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <div className="pt-4 border-t border-gray-200 space-y-2">
-                {isLoggedIn ? (
-                  <>
-                    <Link href="/profile">
-                      <Button
-                        className="w-full justify-start bg-white hover:bg-gray-50"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Profile
-                      </Button>
-                    </Link>
-                    <Button
-                      className="w-full justify-start bg-white hover:bg-gray-50 text-red-600 hover:text-red-700"
-                      onClick={() => {
-                        handleLogout();
-                        setIsMenuOpen(false);
-                      }}
-                    >
-                      Logout
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <Link href="/auth/sign-in">
-                      <Button
-                        className="w-full justify-start bg-white hover:bg-gray-50"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Sign In
-                      </Button>
-                    </Link>
-                    <Link href="/auth/sign-up">
-                      <Button
-                        className="w-full justify-start bg-blue-600 hover:bg-blue-700 text-white"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Sign Up
-                      </Button>
-                    </Link>
-                  </>
-                )}
-              </div>
             </div>
           </motion.div>
         )}
