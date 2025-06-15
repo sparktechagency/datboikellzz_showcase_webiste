@@ -73,7 +73,7 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMenuOpen ? <X className='!text-white' size={20} /> : <Menu className="!text-white" size={20} />}
           </button>
         </div>
       </div>
@@ -94,10 +94,10 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'block px-3 py-2 rounded-md text-base font-medium',
+                    'block px-3 py-2  rounded-md text-base font-medium',
                     isActive(item.href)
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-gray-700 hover:bg-gray-100',
+                      ? 'bg-blue-50 !text-black'
+                      : '!text-white hover:bg-gray-100',
                     item.disabled && 'cursor-not-allowed opacity-50'
                   )}
                   onClick={() => setIsMenuOpen(false)}
