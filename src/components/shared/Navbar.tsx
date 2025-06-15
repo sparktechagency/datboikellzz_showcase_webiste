@@ -16,11 +16,12 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Browse Properties', href: '/browse-properties' },
-  { label: 'About Us', href: '/about-us' },
-  { label: 'Rental Guides', href: '/rental-guides' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms of Condition', href: '/terms-of-condition' },
   { label: 'Contact Us', href: '/contact-us' },
 ];
+
+
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +49,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -73,7 +74,7 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className='!text-white' size={20} /> : <Menu className="!text-white" size={20} />}
+            {isMenuOpen ? <X className='!text-[#E5B92E]' size={20} /> : <Menu className="!text-[#E5B92E]" size={20} />}
           </button>
         </div>
       </div>

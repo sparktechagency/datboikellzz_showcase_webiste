@@ -7,9 +7,9 @@ import CtaButton from '@/components/ui/CtaButton';
 
 const HeroBanner = () => {
   return (
-    <div className="relative min-h-dvh md:min-h-screen pt-20 md:pt-28 w-full">
+    <div className="relative min-h-dvh md:min-h-dvh py-20 md:py-28 w-full">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute  inset-0 z-0">
         <Image
           src="/hero-banner.png"
           alt="Heritage landscape"
@@ -18,11 +18,11 @@ const HeroBanner = () => {
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" /> */}
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-8 md:py-12 flex flex-col md:flex-row items-center justify-between h-full">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-8 md:py-12 flex items-center flex-col md:flex-row justify-center md:justify-between h-full">
         {/* Left: Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -68,7 +68,7 @@ const HeroBanner = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="w-full md:w-1/2 h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] mt-6 sm:mt-8 md:mt-0 flex justify-center"
+          className="w-full flex md:w-1/2 h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] mt-6 sm:mt-8 md:mt-0  justify-center"
         >
           <Image
             src="/hero-model.png"
