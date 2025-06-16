@@ -39,7 +39,7 @@ function WorkSystem() {
             key={index}
             className="relative p-6 md:p-12 rounded-md overflow-hidden shadow-sm md:shadow-sm flex flex-col md:items-start"
           >
-            <div className="absolute -top-1/2 left-1/2 transform -translate-x-1/2  w-full h-full bg-rose-100 -z-1"></div>
+            <div className="absolute -top-1/2 left-1/2 transform -translate-x-1/2  w-full h-full -z-1"></div>
             <div className="absolute -z-1 top-0 left-0 w-full h-full">
               <Image
                 src="/work-bg.png"
