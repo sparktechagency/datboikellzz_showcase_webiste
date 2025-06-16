@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import CtaButton from '@/components/ui/CtaButton';
+import { Link } from 'react-scroll';
 
 const HeroBanner = () => {
   return (
@@ -51,7 +51,18 @@ const HeroBanner = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="mt-6 sm:mt-8"
           >
-            <Link href="/auth/sign-in">
+            <Link
+              activeClass="active"
+              to="download-app"
+              spy={true}
+              smooth={true}
+              hashSpy={true}
+              offset={50}
+              duration={500}
+              isDynamic={true}
+              ignoreCancelEvents={false}
+              spyThrottle={500}
+            >
               <CtaButton text="Download The App Now" />
             </Link>
           </motion.div>

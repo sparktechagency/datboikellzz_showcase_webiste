@@ -1,9 +1,12 @@
 import React from 'react';
-
+import { motion } from 'framer-motion';
 function CtaButton({ text }: Readonly<{ text: string }>) {
   return (
-    <div>
-      <button className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-sm bg-white text-black text-sm sm:text-base">
+    <motion.div
+      whileTap={{ scale: 0.9 }}
+      transition={{ duration: 0.5 }}
+    >
+      <button className="flex cursor-pointer items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-sm bg-white text-black text-sm sm:text-base">
         <svg
           width="16"
           height="22"
@@ -22,7 +25,7 @@ function CtaButton({ text }: Readonly<{ text: string }>) {
         </svg>
         {text}
       </button>
-    </div>
+    </motion.div>
   );
 }
 

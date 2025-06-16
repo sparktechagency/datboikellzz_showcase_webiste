@@ -9,13 +9,12 @@ import React from 'react';
 function page() {
   return (
     <div>
-      {/* <HeroBanner /> */}
-      {/* <WorkSystem /> */}
-      {/* <AppFeature /> */}
-      {/* <StatsSection /> */}
-      {/* <DownloadSection /> */}
+      <HeroBanner />
+      <WorkSystem />
+      <AppFeature />
+      <StatsSection />
+      <DownloadSection />
       <FaQ />
-      {/* <div className="h-screen"></div> */}
     </div>
   );
 }
