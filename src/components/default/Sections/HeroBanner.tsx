@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import HeroButton from '@/components/ui/cta/HeroButton';
 
 const HeroBanner = () => {
-
   return (
     <div className="relative min-h-dvh md:min-h-dvh py-20 md:py-28 w-full">
       {/* Background Image */}
@@ -44,7 +44,7 @@ const HeroBanner = () => {
             and a winning strategy — all in one sleek, intuitive app.
           </motion.p>
 
-       
+          <HeroButton />
         </motion.div>
 
         {/* Right: Hero Image */}
