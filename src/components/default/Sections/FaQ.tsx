@@ -32,7 +32,7 @@ const faqData = [
 
 function FaQ() {
   return (
-    <div className="max-w-4xl relative min-h-screen mx-auto px-4 py-16 md:py-28">
+    <div className="max-w-7xl relative min-h-screen mx-auto px-4 py-16 md:py-28">
       <motion.div
         variants={itemVariants}
         className="relative z-10 text-center mb-12"
