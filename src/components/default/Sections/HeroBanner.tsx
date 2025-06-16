@@ -4,8 +4,15 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import CtaButton from '@/components/ui/CtaButton';
 import { Link } from 'react-scroll';
+import { useEffect, useState } from 'react';
 
 const HeroBanner = () => {
+  const [windowWidth, setWindowWidth] = useState(0);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+    }
+  }, []);
   return (
     <div className="relative min-h-dvh md:min-h-dvh py-20 md:py-28 w-full">
       {/* Background Image */}
@@ -57,7 +64,7 @@ const HeroBanner = () => {
               spy={true}
               smooth={true}
               hashSpy={true}
-              offset={window.innerWidth >= 768 ? -90 : 0}
+              offset={windowWidth >= 768 ? -90 : 0}
               duration={500}
               isDynamic={true}
               ignoreCancelEvents={false}
