@@ -18,7 +18,7 @@ const HeroBanner = () => {
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" /> */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
       </div>
 
       {/* Main Content */}
@@ -60,7 +60,6 @@ const HeroBanner = () => {
         {/* Right: Hero Image */}
         <motion.div
           animate={{
-            x: [0, 20, 30, 20, 0],
             y: [0, 5, 0, -5, 0],
           }}
           transition={{
