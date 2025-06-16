@@ -2,17 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import CtaButton from '@/components/ui/CtaButton';
-import { Link } from 'react-scroll';
-import { useEffect, useState } from 'react';
 
 const HeroBanner = () => {
-  const [windowWidth, setWindowWidth] = useState(0);
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setWindowWidth(window.innerWidth);
-    }
-  }, []);
+
   return (
     <div className="relative min-h-dvh md:min-h-dvh py-20 md:py-28 w-full">
       {/* Background Image */}
@@ -52,27 +44,7 @@ const HeroBanner = () => {
             and a winning strategy — all in one sleek, intuitive app.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-6 sm:mt-8"
-          >
-            <Link
-              activeClass="active"
-              to="download-app"
-              spy={true}
-              smooth={true}
-              hashSpy={true}
-              offset={windowWidth >= 768 ? -90 : 0}
-              duration={500}
-              isDynamic={true}
-              ignoreCancelEvents={false}
-              spyThrottle={500}
-            >
-              <CtaButton text="Download The App Now" />
-            </Link>
-          </motion.div>
+       
         </motion.div>
 
         {/* Right: Hero Image */}

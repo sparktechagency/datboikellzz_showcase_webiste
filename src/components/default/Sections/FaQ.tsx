@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { itemVariants } from './AppFeature';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { itemVariants } from '@/lib/animation';
 
 // Define the FAQ data array
 const faqData = [
