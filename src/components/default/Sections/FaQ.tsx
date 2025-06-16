@@ -32,7 +32,7 @@ const faqData = [
 
 function FaQ() {
   return (
-    <div className="max-w-7xl relative min-h-screen mx-auto px-4 py-16 md:py-28">
+    <div className="max-w-7xl relative  mx-auto px-4 py-16 md:py-28">
       <motion.div
         variants={itemVariants}
         className="relative z-10 text-center mb-12"
@@ -48,7 +48,7 @@ function FaQ() {
 
       <div className="space-y-4">
         <Accordion
-          className="bg-transparent shadow-lg rounded-lg"
+          className="rounded-lg"
           type="single"
           collapsible
           defaultValue="item-1"
