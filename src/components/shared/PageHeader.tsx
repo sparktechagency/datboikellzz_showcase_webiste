@@ -11,7 +11,7 @@ import {
 
 function PageHeader({ title }: Readonly<{ title: string }>) {
   return (
-    <div className="relative w-full py-28 md:py-48">
+    <div className="relative w-full py-28 md:py-36">
       <div className="absolute -z-1 top-0 left-0 w-full h-full">
         <Image
           src="/hero-banner.png"
