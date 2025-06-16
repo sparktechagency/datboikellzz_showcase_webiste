@@ -59,7 +59,7 @@ function DownloadSection() {
   };
 
   return (
-    <Element name="download-app">
+    <Element  name="download-app">
       <div className="relative  overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">

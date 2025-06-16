@@ -11,7 +11,7 @@ import {
 
 function PageHeader({ title }: Readonly<{ title: string }>) {
   return (
-    <div className="relative w-full py-48">
+    <div className="relative w-full py-28 md:py-48">
       <div className="absolute -z-1 top-0 left-0 w-full h-full">
         <Image
           src="/hero-banner.png"
@@ -22,8 +22,8 @@ function PageHeader({ title }: Readonly<{ title: string }>) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
         />
       </div>
-      <div className="container mx-auto">
-        <h1 className="font-medium text-[42px] leading-[100%] text-white tracking-[0%]">
+      <div className="container mx-auto px-2">
+        <h1 className="font-medium text-xl md:text-[42px] leading-[100%] text-white tracking-[0%]">
           {title}
         </h1>
         <Breadcrumb className="mt-4">
