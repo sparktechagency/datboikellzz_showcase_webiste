@@ -38,11 +38,11 @@ function FaQ() {
         className="relative z-10 text-center mb-12"
       >
         <h1 className="font-poppins font-semibold text-3xl md:text-5xl">
-          <span className="text-[#E5B92E]">BetWise</span> App Features
+          Frequently Asked Questions
         </h1>
         <p className="mt-3 text-gray-700 text-lg md:text-xl">
-          Unlock a seamless sports betting experience designed to help you win
-          more with less guesswork.
+          Got questions? We’ve got answers. Explore our FAQ to learn more about
+          what we do and how we can help you!
         </p>
       </motion.div>
 
