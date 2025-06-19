@@ -1,4 +1,4 @@
-export const url = 'http://10.0.60.26:8003';
+export const url = 'http://18.158.237.149:8002';
 
 export const imageUrl = (image: string) => {
     return image
