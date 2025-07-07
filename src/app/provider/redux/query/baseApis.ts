@@ -1,23 +1,20 @@
 
 import { url } from '@/lib/server';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
+import Cookies from 'js-cookie';
 const baseApis = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
         baseUrl: url,
-        credentials: 'include',
-        prepareHeaders: (headers) => {
-            if (typeof window !== 'undefined') {
-                const token = localStorage.getItem('accessToken');
-                if (token) {
-                    headers.set('Authorization', `${token}`);
-                }
-            }
-            return headers;
+        headers: {
+            Authorization: `${Cookies.get('accessToken')}`,
         },
     }),
-    tagTypes: [],
+    tagTypes: [
+        'termsAndConditions',
+        'privacyPolicy',
+        'faq',
+    ],
     endpoints: () => ({}),
 });
 

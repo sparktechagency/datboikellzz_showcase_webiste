@@ -1,4 +1,4 @@
-export const url = 'http://18.158.237.149:8001';
+export const url = 'https://api.betwisepicks.com';
  
 export const imageUrl = (image: string) => {
     return image
