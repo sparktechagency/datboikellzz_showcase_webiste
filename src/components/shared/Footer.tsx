@@ -5,7 +5,7 @@ import React from 'react';
 function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <div className="bg-[#022C22] ">
+    <div className="bg-gradient-to-tr from-[#022C22]/70 to-[#022C22]">
       <div className="py-12 container mx-auto">
         <div className="grid grid-cols-1  md:grid-cols-3 gap-3 ">
           <Image

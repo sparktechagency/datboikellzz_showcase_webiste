@@ -18,7 +18,7 @@ const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Condition', href: '/terms-of-condition' },
-  { label: 'Contact Us', href: '/contact-us' },
+  // { label: 'Contact Us', href: '/contact-us' },
 ];
 
 
