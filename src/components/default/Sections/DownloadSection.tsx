@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Element } from 'react-scroll';
+import Link from 'next/link';
 
 function DownloadSection() {
   const containerVariants = {
@@ -59,7 +60,7 @@ function DownloadSection() {
   };
 
   return (
-    <Element  name="download-app">
+    <Element name="download-app">
       <div className="relative  overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -115,22 +116,25 @@ function DownloadSection() {
                     priority
                   />
                 </motion.div>
-
-                <motion.div
-                  whileHover={badgeHover}
-                  whileTap={{ scale: 0.95 }}
-                  className="cursor-pointer"
-                  onClick={() => alert('coming soon')}
+                <Link
+                  href="https://apps.apple.com/us/app/betwisepicks/id6747808426"
+                  target="_blank"
                 >
-                  <Image
-                    src="/icons/apple-play-badge.svg"
-                    alt="Download on the App Store"
-                    width={180}
-                    height={60}
-                    className="w-auto h-8 md:h-10 lg:h-12"
-                    priority
-                  />
-                </motion.div>
+                  <motion.div
+                    whileHover={badgeHover}
+                    whileTap={{ scale: 0.95 }}
+                    className="cursor-pointer"
+                  >
+                    <Image
+                      src="/icons/apple-play-badge.svg"
+                      alt="Download on the App Store"
+                      width={180}
+                      height={60}
+                      className="w-auto h-8 md:h-10 lg:h-12"
+                      priority
+                    />
+                  </motion.div>
+                </Link>
               </motion.div>
             </motion.div>
 
