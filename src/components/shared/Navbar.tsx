@@ -16,6 +16,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
+  { label: 'Browse Predictions', href: '/browse-Predictions' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Condition', href: '/terms-of-condition' },
   // { label: 'Contact Us', href: '/contact-us' },

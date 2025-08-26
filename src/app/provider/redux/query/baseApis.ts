@@ -14,6 +14,7 @@ const baseApis = createApi({
         'termsAndConditions',
         'privacyPolicy',
         'faq',
+        'post'
     ],
     endpoints: () => ({}),
 });

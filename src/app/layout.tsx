@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReduxWrapper>
-          <NextTopLoader />
+          <NextTopLoader
+          color='#05df72'
+          />
           {children}
         </ReduxWrapper>
       </body>
