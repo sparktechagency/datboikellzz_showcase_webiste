@@ -2,8 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import { imageUrl } from '@/lib/server';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function PredictionCard({ post }: any) {
+function PredictionCard({ post }: { post: any }) {
     return (
         <div className="w-full border border-gray-100 bg-gradient-to-tr to-green-300/40 via-white from-green-300/20 bg-white  rounded-xl  p-6">
             <div className="w-full flex items-center justify-between mb-4">

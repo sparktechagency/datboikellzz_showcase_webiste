@@ -7,14 +7,15 @@ const baseApis = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: url,
         headers: {
-            Authorization: `${Cookies.get('accessToken')}`,
+            Authorization: `Bearer ${Cookies.get('accessToken')}`,
         },
     }),
     tagTypes: [
         'termsAndConditions',
         'privacyPolicy',
         'faq',
-        'post'
+        'post',
+        'profile'
     ],
     endpoints: () => ({}),
 });

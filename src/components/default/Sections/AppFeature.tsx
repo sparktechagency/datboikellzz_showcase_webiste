@@ -77,7 +77,7 @@ function AppFeature() {
           <Image
             src="/mobile-hand.png"
             alt="Mobile in Hand"
-            width={300}
+            width={500}
             height={400}
             className="max-w-full object-cover h-auto"
           />
