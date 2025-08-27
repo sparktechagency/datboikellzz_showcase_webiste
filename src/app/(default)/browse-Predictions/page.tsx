@@ -17,7 +17,7 @@ export interface Post {
 }
 function page() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className='flex items-center justify-center h-[calc(100vh-64px)]'>Loading...</div>}>
             <PrivetRoutes>
                 <BrowsePredictions />
             </PrivetRoutes>

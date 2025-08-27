@@ -5,6 +5,7 @@ import FormTitle from './FormTitle';
 import { useRegisterMutation } from '@/app/provider/redux/services/registerApis';
 import ToastMessage from '@/components/ui/ToastMessage';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export interface RegisterFormValues {
     name: string;
@@ -110,7 +111,7 @@ const RegisterFrom: React.FC = () => {
                     Continue
                 </Button>
             </Form.Item>
-            <h1 className='text-center mb-3 flex items-center md:text-base text-sm justify-center gap-2'>Already have an account?<span className='text-blue-500 cursor-pointer'>Log in</span></h1>
+            <h1 className='text-center mb-3 flex items-center md:text-base text-sm justify-center gap-2'>Already have an account?<Link href='/auth-signin'>Log in</Link></h1>
         </Form>
     );
 };

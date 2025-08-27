@@ -4,7 +4,6 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const token = request.cookies.get('accessToken')?.value;
-    console.log(token)
     if (!token && pathname !== '/auth-signin') {
         return NextResponse.redirect(new URL('/auth-signin', request.url));
     }
@@ -16,5 +15,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/contact-us/:path*', '/browse-Predictions/:path*', '/auth-signin'],
+    matcher: ['/contact-us/:path*', '/browse-Predictions'],
 };
