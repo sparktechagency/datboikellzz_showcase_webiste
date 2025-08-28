@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useGetAllSubscriptionQuery } from '@/app/provider/redux/services/subscriptionApis';
+import { useGetAllSubscriptionQuery, usePaymentLinkGeneratorMutation } from '@/app/provider/redux/services/subscriptionApis';
 import {
     SubscriptionPlan,
     TransformedPlan,
@@ -12,10 +12,18 @@ import DurationSwitcher from './DurationSwitcher';
 import PlanTypeSwitcher from './PlanTypeSwitcher';
 import PlanCard from './PlanCard';
 import SubscriptionLoading from './SubscriptionLoading';
+import ToastMessage from '../ui/ToastMessage';
+import LottieAnimation from '../shared/LottieAnimation';
 
 const SubscriptionManagement: React.FC = () => {
     const { data: subscriptionData, isLoading: subscriptionDataLoading } =
         useGetAllSubscriptionQuery(undefined);
+    const [paymentLinkGenerator, { isLoading: paymentLinkGeneratorLoading }] = usePaymentLinkGeneratorMutation();
+
+    const [open, setOpen] = useState(false);
+    const [message, setMessage] = useState('');
+    const [icon, setIcon] = useState<'success' | 'error' | 'warning' | 'info'>('success');
+    const [timer, setTimer] = useState(3000);
 
     const [selection, setSelection] = useState<PlanSelection>({
         duration: 'daily',
@@ -129,10 +137,26 @@ const SubscriptionManagement: React.FC = () => {
         });
     };
 
-    const handlePlanSelect = (planId: string) => {
+    const handlePlanSelect = async (planId: string) => {
+        try {
+            if (!planId) {
+                throw new Error('Please select a plan');
+            }
 
-        console.log('Selected plan:', planId);
-
+            await paymentLinkGenerator(planId).unwrap().then((res) => {
+                if (res?.success) {
+                    setMessage(res?.message || "Payment link generated successfully");
+                    setIcon('success');
+                    setOpen(true);
+                    window.open(res?.data, '_blank');
+                }
+            })
+        } catch (error: any) {
+            console.error('Error generating payment link:', error);
+            setMessage(error?.data?.message || "Something went wrong");
+            setIcon('error');
+            setOpen(true);
+        }
     };
 
     if (subscriptionDataLoading) {
@@ -164,6 +188,17 @@ const SubscriptionManagement: React.FC = () => {
 
     return (
         <div className="max-w-screen-md mx-auto my-28 p-4">
+            <ToastMessage
+                open={open}
+                setOpen={setOpen}
+                message={message}
+                icon={icon}
+                timer={timer}
+                postion="top-center"
+            />
+            {paymentLinkGeneratorLoading && <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'>
+                <LottieAnimation />
+            </div>}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

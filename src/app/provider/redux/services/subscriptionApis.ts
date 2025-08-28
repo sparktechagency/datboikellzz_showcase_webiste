@@ -10,16 +10,16 @@ export const subscriptionApis = baseApis.injectEndpoints({
       }),
       providesTags: ['subscription'],
     }),
-    updateSubscription: builder.mutation({
-      query: ({ data }) => ({
-        url: '/subscription-plan/update-subscriptionPlan',
-        method: 'PATCH',
-        body: data,
+    paymentLinkGenerator: builder.mutation({
+      query: (planId: string) => ({
+        url: '/payment/post-checkout',
+        method: 'POST',
+        body: { subscriptionId: planId },
       }),
       invalidatesTags: ['subscription'],
     }),
   }),
 });
 
-export const { useGetAllSubscriptionQuery, useUpdateSubscriptionMutation } =
+export const { useGetAllSubscriptionQuery, usePaymentLinkGeneratorMutation } =
   subscriptionApis;
