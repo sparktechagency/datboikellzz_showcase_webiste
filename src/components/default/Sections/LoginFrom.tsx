@@ -1,20 +1,52 @@
 "use client";
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, Form, Input, Divider } from 'antd';
 import Link from 'next/link';
 import FormTitle from './FormTitle';
-
+import { useLoginMutation } from '@/app/provider/redux/services/loginApis';
+import ToastMessage from '@/components/ui/ToastMessage';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 const LoginFrom: React.FC = () => {
-    const onFinish = useCallback((values: any) => {
-        console.log('Received values of form: ', values);
+    const router = useRouter()
+    const [login, { isLoading }] = useLoginMutation()
+    const [open, setOpen] = useState(false)
+    const [message, setMessage] = useState('')
+    const [type, setType] = useState<'success' | 'error' | 'warning' | 'info'>('success')
+    const onFinish = useCallback(async (values: any) => {
+        try {
+            await login(values).unwrap().then((res) => {
+                if (res?.success) {
+                    setMessage(res?.message || "Login successfully")
+                    setType('success')
+                    setOpen(true)
+                    Cookies.set('accessToken', res?.data?.accessToken as string)
+                    if (res?.data?.accessToken) {
+                        router.push('/browse-Predictions')
+                    }
+                }
+            })
+        } catch (error: any) {
+            setMessage(error?.data?.message || "Something went wrong")
+            setType('error')
+            setOpen(true)
+        }
     }, []);
 
     return (
         <Form layout='vertical' requiredMark={false} name="login" initialValues={{ remember: true }} onFinish={onFinish}>
+            <ToastMessage
+                open={open}
+                setOpen={setOpen}
+                message={message}
+                icon={type}
+                timer={1500}
+                postion='top-center'
+            />
             <FormTitle title=" Welcome Back! " description="Access your account and stay ahead with expert picks." />
             <Form.Item
                 label="Email"
-                name="Email"
+                name="email"
                 rules={[{ required: true, message: 'Please input your Email!' }]}
             >
                 <Input size='large' placeholder="Email" />
@@ -27,7 +59,7 @@ const LoginFrom: React.FC = () => {
                 <Input size='large' type="password" placeholder="Password" />
             </Form.Item>
             <Form.Item>
-                <Button block style={{ backgroundColor: '#022C22', color: 'white' }} htmlType="submit" size='large'>
+                <Button loading={isLoading} disabled={isLoading} block style={{ backgroundColor: '#022C22', color: 'white' }} htmlType="submit" size='large'>
                     Log in
                 </Button>
             </Form.Item>

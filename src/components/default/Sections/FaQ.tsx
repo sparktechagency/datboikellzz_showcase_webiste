@@ -12,7 +12,6 @@ import { useAllFaqQuery } from '@/app/provider/redux/services/faqApis';
 
 function FaQ() {
   const { data, isLoading } = useAllFaqQuery(undefined);
-  console.log(data);
   if (isLoading)
     return (
       <div className="min-h-screen">

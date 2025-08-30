@@ -14,6 +14,7 @@ import PlanCard from './PlanCard';
 import SubscriptionLoading from './SubscriptionLoading';
 import ToastMessage from '../ui/ToastMessage';
 import LottieAnimation from '../shared/LottieAnimation';
+import Image from 'next/image';
 
 const SubscriptionManagement: React.FC = () => {
     const { data: subscriptionData, isLoading: subscriptionDataLoading } =
@@ -174,8 +175,15 @@ const SubscriptionManagement: React.FC = () => {
                     <h1 className="text-3xl font-bold">Subscription Management</h1>
                     <p className="text-gray-500 mt-2">No subscription plans found</p>
                 </div>
-                <div className="text-center py-8">
-                    <p className="text-gray-500">
+                <div className="flex items-center justify-center flex-col gap-6 h-[calc(100vh-20rem)]">
+                    <Image
+                        src="/purchase-off.png"
+                        alt="Profile"
+                        width={500}
+                        height={500}
+                        className=""
+                    />
+                    <p className="text-gray-500 text-lg text-center">
                         No subscription plans available to manage.
                     </p>
                 </div>
